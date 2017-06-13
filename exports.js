@@ -1,5 +1,5 @@
 /*
-An informative skill for Pro Basketball Fans *testing vscode github*
+An informative skill for Pro Basketball Fans
 */
 'use strict';
 var aws = require('aws-sdk');
