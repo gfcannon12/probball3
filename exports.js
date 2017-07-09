@@ -3,7 +3,9 @@ An informative skill for Pro Basketball Fans
 */
 'use strict';
 var aws = require('aws-sdk');
-var creds = require('./creds.js');
+console.log(process.env);
+console.log(process.env.js_db_conn);
+console.log(process.env.myAppID);
 
 exports.handler = function (event, context) {
     try {
@@ -15,8 +17,7 @@ exports.handler = function (event, context) {
          * prevent someone else from configuring a skill that sends requests to this function.
          */
 
-    creds.appID();
-    if (event.session.application.applicationId !== appID) {
+    if (event.session.application.applicationId !== process.env.myAppID) {
         context.fail("Invalid Application ID");
      }
 
@@ -179,9 +180,7 @@ function handlePlayerRequest(intent, session, callback) { //handling the users r
 		
 			//Query DB   
 			var pg = require("pg");
-            creds.rds();
-			var conn = rds;
-			var client = new pg.Client(conn);
+			var client = new pg.Client(process.env.js_db_conn);
 
 			// connect to our database 
 			client.connect(function (err) {
