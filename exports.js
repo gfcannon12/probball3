@@ -3,9 +3,6 @@ An informative skill for Pro Basketball Fans
 */
 'use strict';
 var aws = require('aws-sdk');
-console.log(process.env);
-console.log(process.env.js_db_conn);
-console.log(process.env.myAppID);
 
 exports.handler = function (event, context) {
     try {
