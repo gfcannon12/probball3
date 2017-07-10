@@ -154,13 +154,13 @@ function handlePlayerRequest(intent, session, callback) { //handling the users r
 		//console.log(allStatSlots.indexOf(stat));
 		//console.log(allPlayerSlots.indexOf(player3));
 
-		if (allStatSlots.indexOf(stat) == -1) {
+		if (allStatSlots.indexOf(stat) === -1) {
 			var speechOutput = "I'm sorry. I did not understand the stat you requested.  Please try again.  Refer to your Alexa app for a list of supported stats.";
 			var sessionAttributes = {};
 			var repromptText = "Try a request such as, give me points per game for LeBron James";
 			callback(sessionAttributes,
 				buildSpeechletResponse2(CARD_TITLE, speechOutput, repromptText, false));
-		} else if (allPlayerSlots.indexOf(player3) == -1 ) {
+		} else if (allPlayerSlots.indexOf(player3) === -1 ) {
 			var speechOutput = "I'm sorry. I did not understand the player name you requested.  Please try again.  Unfortunately, some player names are difficult to understand";
 			var sessionAttributes = {};
 			var repromptText = "Try a request such as, give me rebounds per game for Blake Griffin";
@@ -170,7 +170,7 @@ function handlePlayerRequest(intent, session, callback) { //handling the users r
 			
 			// This is for the people who forgot to say "per game" I'm adding "per game" so the table can be read
 			var statColumns = ["player", "position", "age", "team", "games played", "games started", "minutes per game", "field goals made per game", "field goal attempts per game", "field goal percentage", "3 pointers made per game", "3 point attempts per game", "3 point percentage", "2 pointers made per game", "2 point attempts per game", "2 point percentage", "effective field goal percentage", "free throws made per game", "free throw attempts per game", "free throw percentage", "offensive rebounds per game", "defensive rebounds per game", "rebounds per game", "assists per game", "steals per game", "blocks per game", "turnovers per game", "fouls per game", "points per game"];
-			if (statColumns.indexOf(stat) = -1) {
+			if (statColumns.indexOf(stat) === -1) {
 				stat = stat + " per game";
 				stat2 = '\"'+ stat + '\"'; //'"points per game"'
 			}
